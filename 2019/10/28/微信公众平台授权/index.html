@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="John Doe">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>微信公众平台授权 - Hexo</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="屋">屋</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">倏之屋</h1>
+        <h3 class="cover-siteTitle">这是个什么世界</h3>
+        <p class="cover-siteDesc">一个记录的地方</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="click to search..." />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href=""
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">Author</span>
+                    <a href=""
+                       target="_blank">狐狸</a>
+                    <span title="Last edited at&nbsp;2019-10-28">2019-10-28</span>
+                </p>
+                <p>咸鱼程序员</p>
+            </div>
+            <h2 class="post-title">微信公众平台授权</h2>
+            <div class="post-meta">
+                emm... 2444 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <ol>
+<li>关注公众账号</li>
+<li>网页授权接口类型<ol>
+<li>snsapi_base：只获取openid，静默获取</li>
+<li>snap_userinfo：获取用户填写信息，需用户点击同意</li>
+</ol>
+</li>
+<li>在微信公众号请求用户网页授权之前，开发者需要先到公众平台官网的开发者中心配置授权回调域名，请注意，这里填写的域名是一个字符串(test.com)，不是一个url，不要加上http://等协议头</li>
+</ol>
+<h4 id="网页授权接口步骤"><a href="#网页授权接口步骤" class="headerlink" title="网页授权接口步骤"></a>网页授权接口步骤</h4><ol>
+<li>用户同意授权，获取code：授权接口类型<ol>
+<li>跳转到redirect_uri/?code=CODE&amp;state=STATE</li>
+</ol>
+</li>
+<li>通过code换取网页授权access_token，区别与普通的access_token</li>
+<li>刷新access_token(如果需要)</li>
+<li>拉取用户信息(需scope为snsapi_userinfo)</li>
+</ol>
+<h4 id="接口示例"><a href="#接口示例" class="headerlink" title="接口示例"></a>接口示例</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curlGet</span><span class="params">($url, $refer = <span class="string">""</span>)</span> </span>&#123;</span><br><span class="line">    $ch = curl_init($url);</span><br><span class="line">    $timeout = <span class="number">30</span>;</span><br><span class="line">    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout); </span><br><span class="line">    curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">false</span>);</span><br><span class="line">    <span class="keyword">if</span>($refer)curl_setopt($ch, CURLOPT_REFERER, $refer);</span><br><span class="line">    </span><br><span class="line">    $returnData = curl_exec($ch);</span><br><span class="line">    curl_close($ch); </span><br><span class="line">    <span class="keyword">return</span> $returnData;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBaseInfo</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 获取code</span></span><br><span class="line">  $appid = <span class="string">'appid'</span>;</span><br><span class="line">  $redirect_uri = urlencode(<span class="string">'http://test.com/Index/getWechatCode'</span>);</span><br><span class="line">  $url = <span class="string">'https://open.weixin.qq.com/connect/oauth2/authorize?appid='</span>.$appid.<span class="string">'&amp;redirect_uri='</span>.$redirect_uri.<span class="string">'&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE#wechat_redirect'</span>;</span><br><span class="line">  header(<span class="string">'location:'</span>.$url);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUserOpenId</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  $appid = <span class="string">'appid'</span>;</span><br><span class="line">  $appsecret = <span class="string">'appsecret'</span>;</span><br><span class="line">  $code = $_GET[<span class="string">'code'</span>];</span><br><span class="line">  $url = <span class="string">'https://api.weixin.qq.com/sns/oauth2/access_token?appid='</span>.$appid.<span class="string">'&amp;secret='</span>.$appsecret.<span class="string">'&amp;code='</span>$code<span class="string">'&amp;grant_type=authorization_code'</span>;</span><br><span class="line">  <span class="comment">// 3. 拉取用户openid</span></span><br><span class="line">  $res = curlGet($url);</span><br><span class="line">  <span class="keyword">return</span> $res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUserDetail</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 获取code</span></span><br><span class="line">  $appid = <span class="string">'appid'</span>;</span><br><span class="line">  $redirect_uri = urlencode(<span class="string">'http://test.com/Index/getUserInfo'</span>);</span><br><span class="line">  $url = <span class="string">'https://open.weixin.qq.com/connect/oauth2/authorize?appid='</span>.$appid.<span class="string">'&amp;redirect_uri='</span>.$redirect_uri.<span class="string">'&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect'</span>;</span><br><span class="line">  header(<span class="string">'location:'</span>.$url);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUserInfo</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 2. 获取网页授权access_token</span></span><br><span class="line">  $appid = <span class="string">'appid'</span>;</span><br><span class="line">  $appsecret = <span class="string">'appsecret'</span>;</span><br><span class="line">  $code = $_GET[<span class="string">'code'</span>];</span><br><span class="line">  $url = <span class="string">'https://api.weixin.qq.com/sns/oauth2/access_token?appid='</span>.$appid.<span class="string">'&amp;secret='</span>.$appsecret.<span class="string">'&amp;code='</span>$code<span class="string">'&amp;grant_type=authorization_code'</span>;</span><br><span class="line">  $res = <span class="keyword">$this</span>-&gt;http_curl($url, <span class="string">'get'</span>);</span><br><span class="line">  $openid = $res[<span class="string">'openid'</span>];</span><br><span class="line">  $access_token = $res[<span class="string">'access_token'</span>];</span><br><span class="line">  <span class="comment">// 3. 拉取用户的详细信息</span></span><br><span class="line">  $infoUrl = <span class="string">'https://api.weixin.qq.com/sns/userinfo?access_token='</span>.$access_token.<span class="string">'&amp;openid='</span>.$openid.<span class="string">'&amp;lang=zh_CN'</span>;</span><br><span class="line">  $res = curlGet($infoUrl);</span><br><span class="line">  <span class="keyword">return</span> $res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+    
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
+        </p>
+        <p>
+            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
+            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，Author&nbsp<a href="" target="_blank" rel="friend">狐狸</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="Input query keywords here..."/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>

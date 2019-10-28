@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="John Doe">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>web安全之csrf攻击 - Hexo</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="屋">屋</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">倏之屋</h1>
+        <h3 class="cover-siteTitle">这是个什么世界</h3>
+        <p class="cover-siteDesc">一个记录的地方</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="click to search..." />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href=""
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">Author</span>
+                    <a href=""
+                       target="_blank">狐狸</a>
+                    <span title="Last edited at&nbsp;2019-10-28">2019-10-28</span>
+                </p>
+                <p>咸鱼程序员</p>
+            </div>
+            <h2 class="post-title">Web安全之CSRF攻击</h2>
+            <div class="post-meta">
+                emm... 1362 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p><strong>什么是CSRF攻击？</strong></p>
+<p>​        CSRF全称为Cross Site Request Forgery，中文意思是跨站点请求伪造，是攻击者通过伪装受信任的用户，来向网站发起请求的一种恶意攻击</p>
+<p><strong>如何进行CSRF攻击？</strong></p>
+<p>​    首先，我们要知道绝大部分破坏力强的CSRF攻击离不开对Cookie的利用。</p>
+<p>​    然后，浏览器的Cookie分为两种：一种是Session Cookie，也叫临时Cookie；另一种是Third-party Cookie，也叫本地Cookie。两者的区别在于Cookie的失效时间。Session Cookie在浏览器关闭后，Session Cookie便马上失效。而Third-party Cookie在Set-Cookie的时候，指定了Expire时间，只有到Expire时间后，Third-party Cookie才会失效。</p>
+<p>​    显然，对于攻击者来说，Third-party Cookie比Session Cookie更加容易利用，从而进行CSRF攻击。因为Third-party Cooike的有效时间更长，用户访问某个网站后，获取Third-party Cookie，那么在Cookie过期失效前，用户都有遭受CSRF攻击的风险。而Session Cookie一般是存放在浏览器的内存中，浏览器关闭就会自动失效。攻击者要想利用Session Cookie进行攻击的话，还要先诱使用户访问目标网站，写入有效的Session，才能进行下一步的攻击。</p>
+<p><strong>浏览器Cookie？</strong></p>
+<p>​    什么是第三方Cookie？来自在网页上嵌入广告或图片等项的其他域来源设置的Cookie</p>
+<p>​    什么是第一方Cookie？由地址栏中列出的网站域设置的 Cookie</p>
+<p>​    因为第三方Cookie容易被黑客利用，所以一些浏览器会拦截第三方Cookie的发送。这在某种程度上加大了CSRF攻击的难度。然而P3P Header又是浏览器可以发送第三方Cookie了。</p>
+<p>​    注：P3P Header是W3C制定的关于隐私的标准</p>
+<p>​    如果在Set-Cookie的时候加上P3P头，那即使浏览器禁止发送第三方Cookie，第三方Cookie也会被发送。因此，对与CSRF的防御不能仅仅依赖浏览器对第三方Cookie的拦截。</p>
+<p><strong>CSRF的防御</strong></p>
+<ol>
+<li><p>验证码</p>
+<p>CSRF攻击是伪造用户身份，自动发起恶意的请求。所以只要强迫攻击者对我们的网站进行交互，通过验证码的校验，可以抵御一部分CSRF攻击。但是加入验证码会影响用户的体验，所以加入验证码这个方法不能作为主要的防御手段。</p>
+</li>
+<li><p>Anti CSRF Token</p>
+<p>CSRF攻击的原理，是伪造用户身份，发起恶意请求。那么攻击者除了要伪装成功，还需要猜出请求的参数。那么如果在请求中，加入一个随机的Token，攻击者就没办法猜出恶意请求的参数了，这就是Anti CSRF Token。Token参数最好放在一个表单中，而不是放在URL里面。因为攻击者可以在当前页面植入恶意的脚本，将当前页面的URL会作为HTTP请求的Reffer，发送到对方服务器上。因此，最好把Token放在表单中，把敏感操作由GET改成POST，这样可以增加黑客CSRF攻击的难度。</p>
+</li>
+</ol>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+    
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
+        </p>
+        <p>
+            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
+            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，Author&nbsp<a href="" target="_blank" rel="friend">狐狸</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="Input query keywords here..."/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>

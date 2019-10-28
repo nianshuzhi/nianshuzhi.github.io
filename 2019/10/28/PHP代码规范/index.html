@@ -1,0 +1,580 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="John Doe">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>php代码规范 - Hexo</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="屋">屋</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">倏之屋</h1>
+        <h3 class="cover-siteTitle">这是个什么世界</h3>
+        <p class="cover-siteDesc">一个记录的地方</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="click to search..." />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href=""
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">Author</span>
+                    <a href=""
+                       target="_blank">狐狸</a>
+                    <span title="Last edited at&nbsp;2019-10-28">2019-10-28</span>
+                </p>
+                <p>咸鱼程序员</p>
+            </div>
+            <h2 class="post-title">PHP代码规范</h2>
+            <div class="post-meta">
+                emm... 6375 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>[toc]</p>
+<h4 id="外部接口"><a href="#外部接口" class="headerlink" title="外部接口"></a>外部接口</h4><ol>
+<li><p>接口名：</p>
+<ol>
+<li>统一为小驼峰式，第一个单词的首字母小写，其余首个单词字母大写；</li>
+<li>英文单词，不要用拼音，更不能中西结合；</li>
+<li>意义明确，动宾结构，比如：getList，showMenu，addProduct，DelStore等；</li>
+<li>如果是获取一条数据，用One区分，如getOneStaffInfo；如果是获取多条数据，用List区分，如GetStaffInfoList；</li>
+</ol>
+</li>
+<li><p>Ajax参数：</p>
+<ol>
+<li><p>命名</p>
+<ol>
+<li>统一为小驼峰式，第一个单词的首字母小写，其余首个单词字母大写；</li>
+<li>英文单词，不要用拼音，更不能中西结合；</li>
+<li>意义明确，如门店ID，优先使用storeId，然后是sid，不能直接就是一个id；</li>
+</ol>
+</li>
+<li><p>默认值</p>
+<ol>
+<li>尽量都要写上默认值；</li>
+<li>接收参数的类型，要与方法的请求方式保持一致；</li>
+<li>接收参数的变量过滤，暂定写在默认值后面，如<code>I(&#39;post.count&#39;, &#39;&#39;, &#39;int&#39;);</code></li>
+<li>默认值要与参数类型一致，如<code>I(&#39;post.count&#39;, &#39;&#39;, &#39;int&#39;);</code>这种已经限制是int型了，后面默认值给空字符串，很奇怪；</li>
+</ol>
+</li>
+<li><p>在接收值的同时进行参数的处理，建议分开，如</p>
+<p><code>$start = I(&#39;post.start&#39;, &#39;&#39;, &#39;string&#39;);</code></p>
+<p><code>$startTs = strtotime($start);</code></p>
+</li>
+<li><p>在接受参数后，需要进行必要的判断，一般包括参数完整性，参数正确性和用户权限判断(提前判断过的忽略此判断)；</p>
+</li>
+<li><p>尽量不要在方法里出现数据库字段 — 如果参数数量大于5，可用数组[‘字段’]这种方式处理；</p>
+</li>
+</ol>
+</li>
+<li><p>请求方式：</p>
+<ol>
+<li>我们最常用的是GET/POST；</li>
+<li>query即查询类的接口，采用GET方式请求；</li>
+<li>execute即增删改类对数据库操作的接口，采用POST方式；</li>
+<li>此外，如果GET参数太长，也可采用POST作为替代；</li>
+</ol>
+</li>
+<li><p>返回形式：</p>
+<ol>
+<li>error为状态码，类型为number</li>
+<li>biz为接口信息，类型为string</li>
+<li>msg为返回数据，类型可为string、object等，视具体情况而定；<ol>
+<li>当msg为object等其他带有多字段返回时，需要写明白里面的各个参数怎么用，如状态state，需要写明白每个状态值的描述</li>
+<li>数组：多条同类数据采用；类似列表接口；如果需要分页，将数据包在list内，将记录数包在total内；</li>
+<li>对象：单条数据；类似详情接口；</li>
+<li>数据格式<ol>
+<li>暂规定分页total、数量count、数字id等，在返回前加上强制类型转换intval；</li>
+<li>不要把数据库字段直接返回给前端，需要在数据返回前做一次映射；</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>对外接口</strong></p>
+<ol>
+<li><p><strong>参数一旦确定就不要轻易更改，如果有更改，要及时通知前端</strong></p>
+</li>
+<li><p><strong>文件名与类名要完全相同为大驼峰</strong></p>
+</li>
+<li><p><strong>一般若无特殊需求，默认一个文件只声明一个类</strong></p>
+</li>
+<li><p><strong>尽量做到功能性专一，不要在一个方法里实现多个功能；</strong></p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="内部函数"><a href="#内部函数" class="headerlink" title="内部函数"></a>内部函数</h4><ol>
+<li><p>函数名：包括公共函数function、行为方法Behaviors、内部方法Service和内部方法Model。</p>
+<ol>
+<li>统一为小驼峰式，第一个单词的首字母小写，其余首个单词字母大写；</li>
+<li>英文单词，不要用拼音，更不能中西结合；</li>
+<li>意义明确，动宾结构，比如：getList，showMenu，addProduct，DelStore等；</li>
+<li>如果是获取一条数据，用One区分，如getOneStaffInfo；如果是获取多条数据，用List区分，如GetStaffInfoList；</li>
+</ol>
+</li>
+<li><p>变量名：包括方法内变量、循环内变量和特殊变量</p>
+<ol>
+<li>方法内变量，采用小驼峰式；</li>
+<li>循环内变量，采用 _ 小驼峰式；</li>
+<li>特殊变量，Service为$s_Service名，如 $s_photo；Model为$m_Model名，如$m_photo；</li>
+</ol>
+</li>
+<li><p>常量：</p>
+<ol>
+<li>全大写，用_分隔；</li>
+<li>写在类的最上方，与第一个方法空一行；</li>
+<li>如果是全局的常量，写在conf文件夹的配置中；</li>
+</ol>
+</li>
+<li><p>公、私有方法界定：</p>
+<ol>
+<li>公有方法<ol>
+<li>即public方法，一般需供其他类方法进行调用；</li>
+<li>命名：小驼峰式</li>
+</ol>
+</li>
+<li>私有方法<ol>
+<li>即private方法，仅在自己类中被调用，服务于类内部，一般为类方法中提取的重复性代码;</li>
+<li>命名：以下划线开头的小驼峰式，如：<code>private function _getInfoList ()</code></li>
+</ol>
+</li>
+<li>以后写方法的时候，要写明白是public还是private；</li>
+</ol>
+</li>
+<li><p>公共函数：不用声明对象即可调用的函数</p>
+<ol>
+<li>即common内的function文件，里面放着许多可直接调用的函数，包括截取字符串等函数；</li>
+<li>可自行添加公共函数(全局抽象代码)；</li>
+</ol>
+</li>
+<li><p>CSMV各层方法界定：Controller、Service、Model、View</p>
+<ol>
+<li>Controller即控制器，为连接前端与后端的纽带，它只做简单的参数接收、参数判断、参数处理和数据的返回；</li>
+<li>Service即服务层，为主要的业务逻辑层，它根据Controller所传参数进行业务逻辑上面的处理并将处理后的结果返回给Controller；Service只允许进行DB一步操作【即一个箭头的操作】；</li>
+<li>Model即数据库层，为基础的数据库操作层，它根据Service所传参数对数据库进行增删改查等操作；</li>
+<li>View即视图层，为用户所看到的界面显示层，此层多为前端使用</li>
+<li><strong>各层方法均要功能性专一</strong></li>
+</ol>
+</li>
+<li><p>异常处理：</p>
+<ol>
+<li>try catch为正规的异常处理方法；</li>
+<li>现处理方法是手动对代码执行结果判断，根据判断的结果，向Controller返回状态码和错误信息等数据；</li>
+<li>暂定采用手动判断返回的异常处理方法</li>
+</ol>
+</li>
+<li><p><strong>内部函数</strong></p>
+<ol>
+<li><p><strong>不要在循环内取session值</strong></p>
+</li>
+<li><p><strong>不要在循环内取配置值</strong></p>
+</li>
+<li><p><strong>尽量不要在循环内使用SQL语句</strong></p>
+</li>
+<li><p><strong>每个代码块之间空一行，特别是Service里的代码</strong></p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h4><ol>
+<li><p>空格</p>
+<ol>
+<li>函数名与后面的圆括弧间空一格，如<code>public function getOneCache () {</code>；</li>
+<li>原括弧内的各个参数逗号后空一格，如<code>getCserPhoto ($taker, $page, $pageSize)</code>；</li>
+<li>原括弧与后面的左大括弧在同一行，且空一格，如<code>public function getOneCache () {</code>；</li>
+<li>函数体内调用的方法不要与后面的原括弧空一格，如<code>$s_cker-&gt;getCserPhoto($taker, $page);</code>；</li>
+<li>赋值操作符、逻辑操作符、等号操作符、关系运算符、按位操作符左右各有一个空格；</li>
+</ol>
+</li>
+<li><p>空行</p>
+<ol>
+<li><p>左大括弧与下面的代码间不要空一行，如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getOneCache</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	$key = I(<span class="string">'post.key'</span>, <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&lt;?php</code>与命名空间中间不空，命名空间namespace和导入use间空一行，导入use和声明class间空一行</p>
+</li>
+<li><p>如果 return 语句之前的代码块超过3行，return 语句之前需要空行；如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$arr[<span class="string">'name'</span>] = $val[<span class="string">'P_Name'</span>];</span><br><span class="line">$arr[<span class="string">'age'</span>] = $val[<span class="string">'P_Age'</span>];</span><br><span class="line">$arr[<span class="string">'sex'</span>] = $val[<span class="string">'P_Sex'</span>];</span><br><span class="line">$arr[<span class="string">'state'</span>] = $val[<span class="string">'P_State'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> $arr;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>php文件的结束标签统一不写，在最后加一行空行即可；</p>
+<ol>
+<li>PHP 结束标签 <strong>?&gt;</strong> 对于 PHP 解析器来说是可选的，但是只要使用了，结束标签之后的空格，有可能会导致不想要的输出，这个空格可能是由开发者或者用户又或者 FTP 应用程序引入的，甚至可能导致出现 PHP 错误，如果配置了不显示 PHP 错误，就会出现空白页面。基于这个原因， 所有的 PHP 文件将不使用结束标签，而是以一个空行代替。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>注释</p>
+<ol>
+<li>类注释统一采用<code>/**/</code>格式，写明类的用途，作者，版本，时间等，具体参考phpDocumentor；</li>
+<li>方法注释、变量注释、逻辑注释采用<code>//</code>格式，<code>//</code>与后面的注释内容空一格,如<code>// 指定键查询缓存</code>；</li>
+<li>为便于寻找，建议方法注释的内容前面加上[前端模块名]，如<code>// [抽查中心-修片审核抽查]获取当天数据</code>；<strong>优先是一个前端模块对应一个控制器；</strong></li>
+</ol>
+</li>
+<li><p>数组</p>
+<ol>
+<li><p>数组统一用<code>[]</code>代替<code>array()</code>写法；</p>
+</li>
+<li><p>只有一个键值对时，写成一行；如<code>$arr = [&#39;name&#39; =&gt; &#39;fox&#39;];</code></p>
+</li>
+<li><p>有两个或以上键值对时，换行；如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$arr = [</span><br><span class="line">	<span class="string">'name'</span> =&gt; <span class="string">'fox'</span>,</span><br><span class="line">	<span class="string">'age'</span> =&gt; <span class="number">25</span>,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><ol>
+<li>数据表：<ol>
+<li>表名采用<code>hmt_account_workload</code>格式，前缀_全小写单词；</li>
+<li>注释，即建表的comment，不可省略，要写明是什么表；</li>
+<li>采用Innodb引擎；</li>
+<li>默认必有主键、创建时间等字段。如果数据存在更新需求，还需要有更新时间字段；</li>
+</ol>
+</li>
+<li>字段：<ol>
+<li>字段名采用<code>AW_StaffType</code>格式，全大写表名首字母_大驼峰</li>
+<li>类型：<ol>
+<li>常用的数字类为int11，时间类为int11，状态类为tinyint<ol>
+<li>tinyint范围为-127～127，size只表示显示的宽度，最大值取3；</li>
+</ol>
+</li>
+<li>一般int/tinyint型字段若无特殊要求，均加上unsigned属性；</li>
+<li>其他的varchar和text型视具体情况而定，一般text格式的会分表；</li>
+<li>尽量少的使用text型</li>
+</ol>
+</li>
+<li>注释：即comment内容，注释必须要写清楚</li>
+</ol>
+</li>
+<li>缓存：<ol>
+<li>现使用Memcached缓存；</li>
+<li>key暂定为：项目缩写_ 明确意义单词_其他必要参数；</li>
+<li>项目的不同采用不同的前缀：HIMO_   KIDS_   CLOUD_   OA_等；</li>
+<li>过期时间，一般设置为3600s；短时间的设置为180s～300s，具体依照需求安排；</li>
+</ol>
+</li>
+<li><strong>数据库</strong><ol>
+<li><strong>使用数据库可视化软件时，请确保已设置每页最大记录数为100左右；</strong></li>
+<li><strong>需要进行SQL操作执行时，请现在测试库执行一遍，确保没有问题，再在只读库或者线上库执行；</strong></li>
+<li><strong>需要在线上库添加字段时，请在SQL后加上<code>AFTER 字段</code>，指定字段添加的位置；</strong></li>
+<li><strong>字段属性，没有特殊情况，都是NOT NULL</strong></li>
+<li><strong>不写字段备注的都是耍流氓！</strong></li>
+</ol>
+</li>
+</ol>
+<h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h4><ol>
+<li><p>归属项目：</p>
+<ol>
+<li>现在有HIMO两个，KIDS两个，云图一个，OA一个，营销一个共7个项目，按照道理应该是一个项目对应一个文档。没有特殊理由，不要创建其他的文档；</li>
+</ol>
+</li>
+<li><p>归属模块：</p>
+<ol>
+<li>一般项目内有几个模块就新建几个模块，不要把不同模块的接口文档写在一起；</li>
+</ol>
+</li>
+<li><p>分类名：</p>
+<ol>
+<li>现暂定分类名为视图可见的一级菜单名；</li>
+</ol>
+</li>
+<li><p>接口名：</p>
+<ol>
+<li>现暂定为【二级菜单】接口功能名，如<code>【修片审核抽查】抽取</code>；</li>
+</ol>
+</li>
+<li><p>文档内容：</p>
+<ol>
+<li>添加接口后，右侧表格从上往下填写清楚，不需要的不填，但是需要的要填写清楚；</li>
+<li>请求方法写明白是GET还是POST；</li>
+<li>请求地址为：/控制器名/方法名，注意别用中文符号；</li>
+<li>接口描述，如果接口内容较多，可在此进行简单的介绍；</li>
+<li>发送数据：<ol>
+<li>名称要有意义</li>
+<li>是否必须</li>
+<li>参数类型</li>
+<li>默认值</li>
+<li>描述，一定要写清楚，如果是状态参数，要在描述里面写明白各个状态对应的值</li>
+</ol>
+</li>
+<li>返回参数：<ol>
+<li>error为状态码，类型为number<ol>
+<li>状态码：<ol>
+<li>返回成功的状态码为0；</li>
+<li>异常的状态码：<ol>
+<li>400 未登录、未授权</li>
+<li>401 参数缺失</li>
+<li>403 参数错误，如规定参数范围是0-9，传值是11；</li>
+<li>404 数据不存在，指在修改数据时，检查不存在。如果是获取数据时，不存在即为空数组、空对象，状态码为0</li>
+<li>500服务器错误(数据库添加、删除等错误)；</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>biz为接口信息，类型为string</li>
+<li>msg为返回数据，类型可为string、object等，视具体情况而定；当msg为object时，需要写明白里面的各个参数，参照接口参数的要求写清楚；</li>
+</ol>
+</li>
+<li>示例数据：<ol>
+<li>标准的返回数据格式示例；</li>
+<li>有时候也把一些复杂参数放到这里进行一定的解释说明；</li>
+</ol>
+</li>
+</ol>
+<p>​</p>
+</li>
+</ol>
+<p>####测试环境</p>
+<ol>
+<li>PHP环境：lamp环境，确保前后端的测试环境及本地配置一致；</li>
+<li>数据库环境：供后端测试使用<ol>
+<li>及时清理脏数据；</li>
+<li>账号相关的表不要乱动；</li>
+<li>自己建的表自己整理；</li>
+</ol>
+</li>
+<li>一致性：本地环境、测试环境、线上环境尽可能的保持一致</li>
+</ol>
+<p>####其他</p>
+<ol>
+<li>不要使用php的短标记，即<code>&lt;? &gt;</code>，防止服务器不支持；</li>
+<li>第三方的SDK<ol>
+<li>一般存放在Vendor目录中；</li>
+<li>导入方法选择vendor</li>
+<li>SDK携带的示例代码不要保留</li>
+</ol>
+</li>
+</ol>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>代码示例1：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [抽查中心-修片审核抽查]通过</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">passCserPhoto</span> <span class="params">($taker, $id, $csGrass, $csNote)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 判断照片是否是此人抽查</span></span><br></pre></td></tr></table></figure>
+
+<p>代码示例2:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!$photoCheckChangeRes) &#123;</span><br><span class="line">	<span class="keyword">self</span>::$lastErrorCode = <span class="number">500</span>;</span><br><span class="line">  	<span class="keyword">self</span>::$lastError = <span class="string">'系统繁忙,请稍后再试'</span>;</span><br><span class="line">  	<span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码示例3:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (in_array($_photo[<span class="string">'CP_Id'</span>], $plantData)) &#123;</span><br><span class="line">	$returnData[<span class="string">'floatExp'</span>] += $_exp;</span><br><span class="line">&#125; <span class="keyword">elseif</span> (in_array($_photo[<span class="string">'CP_Id'</span>], $weedData)) &#123;</span><br><span class="line">	$returnData[<span class="string">'floatExp'</span>] -= $_exp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码示例4:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前端传参</span></span><br><span class="line">$start = I(<span class="string">'post.start'</span>, <span class="string">''</span>, <span class="string">'string'</span>);</span><br><span class="line">$end = I(<span class="string">'post.end'</span>, <span class="string">''</span>, <span class="string">'string'</span>);</span><br><span class="line">$csGrass = I(<span class="string">'post.csGrass/d'</span>, <span class="number">0</span>, <span class="string">'int'</span>);</span><br><span class="line">$glid = I(<span class="string">'post.glid'</span>, <span class="number">0</span>, <span class="string">'int'</span>);</span><br><span class="line">$page = I(<span class="string">'post.page/d'</span>, <span class="number">1</span>, <span class="string">'int'</span>);</span><br><span class="line">$pageSize = I(<span class="string">'post.pageSize/d'</span>, <span class="number">10</span>, <span class="string">'int'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数判断</span></span><br><span class="line"><span class="keyword">if</span> (!$start || !$end) &#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;sendAjax(<span class="number">406</span>, <span class="string">'CKER_GETCSERPHOTORECORD'</span>, <span class="string">'关键信息不可为空'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数转换</span></span><br><span class="line">$startTs = strtotime($start);</span><br><span class="line">$endTs = strtotime($end) + <span class="number">86399</span>;</span><br><span class="line"></span><br><span class="line">$s_cker = D(<span class="string">'Cker'</span>, <span class="string">'Service'</span>);</span><br><span class="line">$recordRes = $s_cker-&gt;getCserPhotoRecord($startTs, $endTs, $csGrass, $glid, $page, $pageSize);</span><br><span class="line"><span class="keyword">if</span> (!$recordRes) &#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;sendAjax($s_cker::$lastErrorCode, <span class="string">'CKER_GETCSERPHOTORECORD'</span>, $s_cker::$lastError);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;sendAjax(<span class="number">0</span>, <span class="string">'CKER_GETCSERPHOTORECORD'</span>, $recordRes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>收到</p>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+    
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
+        </p>
+        <p>
+            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
+            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，Author&nbsp<a href="" target="_blank" rel="friend">狐狸</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="Input query keywords here..."/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>
