@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>categories - 技术 - Hexo</title>
+<title>对程序员来说cpu是什么 - Hexo</title>
 
 <meta name="keywords" content="">
 
@@ -113,21 +113,21 @@
 
             <div class="page-title">
     <ul>
-        <li class="">
-            <a href="/" data-name="Recent Posts">Recent Posts</a>
-        </li>
+        <li><a href="/">Recent Posts</a></li>
         
-        <li class="active">
-            <a href="/categories/tech-notes" data-name="技术">技术</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/humanities" data-name="人文">人文</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/others" data-name="其他">其他</a>
-        </li>
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/humanities" data-name="人文">人文</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -142,91 +142,100 @@
     </ul>
 </div>
 <div class="main-inner">
-    
-        
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href=""
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">Author</span>
+                    <a href=""
+                       target="_blank">狐狸</a>
+                    <span title="Last edited at&nbsp;2019-10-29">2019-10-29</span>
+                </p>
+                <p>咸鱼程序员</p>
+            </div>
+            <h2 class="post-title">对程序员来说CPU是什么</h2>
+            <div class="post-meta">
+                emm... 1683 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h3>一些问题</h3>
+1. 什么是程序？
+   程序是指示计算机每一步动作的一组指令。
+2. 程序是由什么组成？
+   程序是由指令和数据组成。
+3. 什么是机器语言？
+   机器语言指的是CPU能够直接识别并使用的语言
+4. 正在运行的程序存储在什么位置？
+   内存
+5. 什么是内存地址？
+   内存地址是内存中，用来表示命令和数据存储位置的数值
+6. 计算机的构成元件中，负责程序的解释和运行的是哪个？
+   CPU
+
+
+<h3>CPU</h3>
+
+<pre><code>Central Processing Unit，即中央处理器。</code></pre><p>&emsp;&emsp;CPU的内部由寄存器，控制器，计算器和时钟四个部分构成，各部分之间由电流信号相互连通。<br>&emsp;&emsp;寄存器可以用来暂存指令，数据等处理对象。<br>&emsp;&emsp;控制器负责把内存上的指令，数据等读入寄存器，并根据指令的执行结果来控制整个计算机(数据计算之外的处理，主要是输入输出的时机控制，内存，键盘，显示器等的输入输出)。<br>&emsp;&emsp;运算器负责运算从内存读入计算器的数据。<br>&emsp;&emsp;时钟负责发出CPU开始计时的时钟信号。2GHz表示的时钟信号频率为2GHz，即20亿次/秒，时钟信号的频率越高，CPU的运行速度越快<br>&emsp;&emsp;内存指的是计算机的主存储器，简称主存。主存通过控制芯片等与CPU相连，主要负责存储指令和数据。主存由可读写的元素构成，每个字节(8位)都带有一个地址编号。CPU可以通过该地址读写主存中的指令和数据。主存中存储的指令和数据会随着计算机的关机而自动清除。<br>&emsp;&emsp;内存的存储场所通过地址编号来区分，寄存器的种类通过名字来区分。</p>
+<h3>寄存器</h3>
+&emsp;&emsp;累加寄存器：一个，存储执行运算的数据和运算后的结果
+&emsp;&emsp;标志寄存器：一个，存储计算处理后的CPU的状态
+&emsp;&emsp;程序计数器：一个，存储下一条指令所在内存的地址，决定程序流程顺序
+&emsp;&emsp;基址寄存器：存储数据内存的起始地址
+&emsp;&emsp;变址寄存器：存储基址寄存器的相对地址
+&emsp;&emsp;通用寄存器：存储任意数据
+&emsp;&emsp;指令寄存器：一个，存储指令。CPU内部使用，程序员无法通过程序对该寄存器进行读写操作
+&emsp;&emsp;栈寄存器：一个，存储栈区域的起始地址
+&emsp;&emsp;程序流程分为顺序执行，条件分支，循环三种。条件分支和循环使用的是跳转指令。标志寄存器存放了累加寄存器的运算结果是负数，零还是正数，也负责存放溢出和奇偶校验的结果。
+&emsp;&emsp;运算结果的正零负三种状态由标记寄存器的三个位表示。第一位，第二位，第三位都为1是，分别对应表示正零负。程序中的比较指令，就是在cpu内部做减法运算。
+
+<h3>函数调用机制</h3>
+&emsp;&emsp;call指令：会把调用函数后要执行的指令地址存储在栈的主存内。
+&emsp;&emsp;return指令：会把保存在栈中的地址设定到程序计数器中。
+&emsp;&emsp;数组：通过基址寄存器和变址寄存器实现。CPU会把基址寄存器和变址寄存器的值得和解释为实际的内存地址，变址寄存器的值就相当于高级编程语言数组的索引
+
+<h3>CPU处理指令</h3>
+&emsp;&emsp;数据转送指令：寄存器和内存，内存和内存，寄存器和外围设备之间的数据读写操作。
+&emsp;&emsp;运算指令：用累加寄存器执行算术运算，逻辑运算，比较运算和位移运算。
+&emsp;&emsp;跳转指令：实现条件分支，循环，强制跳转等。
+&emsp;&emsp;call/return指令，函数的调用/返回调用前的地址。
+
+<h3>运行流程</h3>
+&emsp;&emsp;高级编程语言->机器语言->内存->计时器->控制器->寄存器->运算器(程序计数器指定执行哪条指令，标记寄存器确认正负数，基址寄存器和变址寄存器确定内存地址，栈寄存器和call，return确保函数调用后回到正确的指令顺序)
             
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong>狐狸</strong>
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
             </a>
-            <em>·</em>2019-10-29
-            
         </div>
-        <a class="post-title" href="/2019/10/29/%E5%AF%B9%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9D%A5%E8%AF%B4CPU%E6%98%AF%E4%BB%80%E4%B9%88/" target="_blank" title="对程序员来说CPU是什么">对程序员来说CPU是什么</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        对程序员来说CPU是什么
-    </div>
-</article>
-
-
-
         
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong>狐狸</strong>
-            </a>
-            <em>·</em>2019-10-28
+        <div class="post-tags">Tags：
             
         </div>
-        <a class="post-title" href="/2019/10/28/%E7%BC%96%E7%A0%81%E5%87%BD%E6%95%B0/" target="_blank" title="编码函数">编码函数</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        编码函数
-    </div>
-</article>
-
-
-
         
-            
-<article class="post">
+    </article>
     
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong>狐狸</strong>
-            </a>
-            <em>·</em>2019-10-28
-            
-        </div>
-        <a class="post-title" href="/2019/10/28/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%88%E6%9D%83/" target="_blank" title="微信公众平台授权">微信公众平台授权</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        微信公众平台授权
-    </div>
-</article>
-
-
-
-        
+        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
     
+    
+    
+
 </div>
+<script src="/js/busuanzi.pure.mini.js"></script>
 
 
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
-    <div class="footer-inner" style="text-align: left">
+    <div class="footer-inner" style="text-align: center">
         <p>
             <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
