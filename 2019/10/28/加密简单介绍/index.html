@@ -115,7 +115,15 @@
     <ul>
         <li><a href="/">Recent Posts</a></li>
         
-        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -146,19 +154,21 @@
             </div>
             <h2 class="post-title">加密简单介绍</h2>
             <div class="post-meta">
-                emm... 1435 words in the article |
+                emm... 1426 words in the article |
                 you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>####单项散列加密技术介绍：</p>
+            <h4>单项散列加密技术介绍：</h4>
+
 <p>单项散列加密是指通过对不同输入长度的信息进行散列计算，得到固定长度的输出，这个散列计算过程是单向的，即不能对固定长度的输出进行计算从而获得输入信息</p>
 <p>####对称加密技术介绍：</p>
 <p>对称加密是指加密和解密使用的密钥是同一个密钥或者可以互相推算</p>
 <p>####非对称加密技术介绍：</p>
 <p>非对称加密和解密使用的密钥不是同一个密钥，其中一个对外公开，被称作公钥，另一个只有所有人知道</p>
 <p>附：</p>
-<p>####1. crypt函数</p>
+<h4>1. crypt函数</h4>
+
 <p>crypt() 函数返回使用 DES、Blowfish 或 MD5 算法加密的字符串。</p>
 <p>在不同的操作系统上，该函数的行为不同，某些操作系统支持一种以上的算法类型。在安装时，PHP 会检查什么算法可用以及使用什么算法。</p>
 <p>具体的算法依赖于 salt 参数的格式和长度。通过增加由使用特定加密方法的特定字符串所生成的字符串数量，salt 可以使加密更安全。</p>
@@ -173,7 +183,8 @@
 
 
 
-<p>####2. Sha1函数</p>
+<h4>2. Sha1函数</h4>
+
 <p>语法：</p>
 <p>$string sha1(string $str[,bool $raw_output=false]);</p>
 <p>返回sha1散列值字符串</p>

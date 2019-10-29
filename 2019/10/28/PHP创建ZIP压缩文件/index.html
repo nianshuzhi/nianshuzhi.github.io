@@ -115,7 +115,15 @@
     <ul>
         <li><a href="/">Recent Posts</a></li>
         
-        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -146,14 +154,16 @@
             </div>
             <h2 class="post-title">PHP创建ZIP压缩文件</h2>
             <div class="post-meta">
-                emm... 916 words in the article |
+                emm... 908 words in the article |
                 you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>####涉及的类库：</p>
+            <h4>涉及的类库</h4>
+
 <p>ZipArchive</p>
-<p>####示例代码：</p>
+<h4>示例代码</h4>
+
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createZip</span><span class="params">($fileArr = [], $name = <span class="string">''</span>, $overWrite = FALSE)</span> </span>&#123;</span><br><span class="line">  	<span class="comment">// 初始化数组</span></span><br><span class="line">    $validFiles = [];</span><br><span class="line">  	<span class="comment">// 如果文件存在且不需覆盖</span></span><br><span class="line">  	<span class="keyword">if</span>(file_exists($destination) &amp;&amp; !$overWrite) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line">  	&#125;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span>(is_array($fileArr)) &#123;</span><br><span class="line">      	<span class="keyword">foreach</span>($fileArr <span class="keyword">as</span> $_file) &#123;</span><br><span class="line">        	<span class="keyword">if</span>(file_exists($_file)) &#123;</span><br><span class="line">          		$validFiles[] = $_file;</span><br><span class="line">        	&#125;</span><br><span class="line">      	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span>(count($validFiles)) &#123;</span><br><span class="line">      	$zip = <span class="keyword">new</span> ZipArchive();</span><br><span class="line">      	<span class="keyword">if</span>($zip-&gt;open($destination, $overWrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== <span class="keyword">TRUE</span>) &#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line">      	&#125;</span><br><span class="line">      	<span class="keyword">foreach</span>($validFiles <span class="keyword">as</span> $_file) &#123;</span><br><span class="line">        	$zip-&gt;addFile($_file, $_file);</span><br><span class="line">      	&#125;</span><br><span class="line">      	$zip-&gt;close();</span><br><span class="line">      	<span class="keyword">return</span> file_exists($destination);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      	<span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 

@@ -115,7 +115,15 @@
     <ul>
         <li><a href="/">Recent Posts</a></li>
         
-        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -146,15 +154,17 @@
             </div>
             <h2 class="post-title">PHP断点续传</h2>
             <div class="post-meta">
-                emm... 911 words in the article |
+                emm... 903 words in the article |
                 you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>####原理：</p>
+            <h4>原理</h4>
+
 <p>断点续传主要是HTTP协议中的Content-Range报头。其理解如下：</p>
 <p>Content-Range：响应资源的范围。可以在多次请求中标记请求的资源范围，在连接断开重新连接时，客户端只请求该资源未被下载的部分，而不是重新请求整个资源，实现了断点续传。迅雷就是基于这个原理，使用多线程分段读取网络上的资源，最后合并。</p>
-<p>####代码实现：</p>
+<h4>代码实现</h4>
+
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContentRange</span> <span class="params">($fileSize)</span> </span>&#123;</span><br><span class="line">  	$range = <span class="keyword">isset</span>($_SERVER[<span class="string">'HTTP_RANGE'</span>])?$_SERVER[<span class="string">'HTTP_RANGE'</span>]:<span class="keyword">NULL</span>;  </span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">empty</span>($range)) &#123;  </span><br><span class="line">         $range = preg_replace(<span class="string">'/[\s|,].*/'</span>, <span class="string">''</span>, $range);  </span><br><span class="line">         $range = explode(<span class="string">'-'</span>, substr($range, <span class="number">6</span>));  </span><br><span class="line">         <span class="keyword">if</span> (count($range) &lt; <span class="number">2</span>) &#123;  </span><br><span class="line">             $range[<span class="number">1</span>] = $fileSize;  </span><br><span class="line">         &#125;  </span><br><span class="line">         $range = array_combine([<span class="string">'start'</span>,<span class="string">'end'</span>], $range);  </span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">empty</span>($range[<span class="string">'start'</span>])) &#123;  </span><br><span class="line">             $range[<span class="string">'start'</span>] = <span class="number">0</span>;  </span><br><span class="line">         &#125;  </span><br><span class="line">         <span class="keyword">if</span> (!<span class="keyword">isset</span>($range[<span class="string">'end'</span>]) || <span class="keyword">empty</span>($range[<span class="string">'end'</span>])) &#123;  </span><br><span class="line">             $range[<span class="string">'end'</span>] = $fileSize;  </span><br><span class="line">         &#125;  </span><br><span class="line">         <span class="keyword">return</span> $range;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">NULL</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             
                 

@@ -115,7 +115,15 @@
     <ul>
         <li><a href="/">Recent Posts</a></li>
         
-        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -146,20 +154,25 @@
             </div>
             <h2 class="post-title">Docker初识</h2>
             <div class="post-meta">
-                emm... 448 words in the article |
+                emm... 442 words in the article |
                 you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>###Docker初识</p>
-<p>####什么是Docker？</p>
+            <h3>Docker初识</h3>
+
+<h4>什么是Docker？</h4>
+
 <p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMS(虚拟机)、bare metal、openstack集群和其他的基础应用平台</p>
-<p>####Docker使用场景？</p>
+<h4>Docker使用场景？</h4>
+
 <p>web应用的自动化打包和发布</p>
 <p>自动化测试和持续集成、发布</p>
 <p>在服务型环境中部署和调整数据库或其他的后台应用</p>
 <p>从头编译或者扩展现有的openshift或cloud foundry平台来搭建自己的paas环境。</p>
-<h4 id="Docker的架构？"><a href="#Docker的架构？" class="headerlink" title="Docker的架构？"></a>Docker的架构？</h4><p>Docker使用客户端-服务器(C/S)架构模式，使用远程API来管理和创建Docker容器通过Docker镜像来创建</p>
+<h4>Docker的架构？</h4>
+
+<p>Docker使用客户端-服务器(C/S)架构模式，使用远程API来管理和创建Docker容器通过Docker镜像来创建</p>
 <p>容器与镜像的关系类似于面向对象编程中的对象与类</p>
 <p>clients — 客户端</p>
 <p>hosts — 主机</p>

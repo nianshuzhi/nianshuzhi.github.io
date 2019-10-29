@@ -115,7 +115,15 @@
     <ul>
         <li><a href="/">Recent Posts</a></li>
         
-        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -146,13 +154,12 @@
             </div>
             <h2 class="post-title">Web安全之CSRF攻击</h2>
             <div class="post-meta">
-                emm... 1362 words in the article |
+                emm... 1361 words in the article |
                 you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p><strong>什么是CSRF攻击？</strong></p>
-<p>​        CSRF全称为Cross Site Request Forgery，中文意思是跨站点请求伪造，是攻击者通过伪装受信任的用户，来向网站发起请求的一种恶意攻击</p>
+            <p><strong>什么是CSRF攻击？</strong><br>​        CSRF全称为Cross Site Request Forgery，中文意思是跨站点请求伪造，是攻击者通过伪装受信任的用户，来向网站发起请求的一种恶意攻击</p>
 <p><strong>如何进行CSRF攻击？</strong></p>
 <p>​    首先，我们要知道绝大部分破坏力强的CSRF攻击离不开对Cookie的利用。</p>
 <p>​    然后，浏览器的Cookie分为两种：一种是Session Cookie，也叫临时Cookie；另一种是Third-party Cookie，也叫本地Cookie。两者的区别在于Cookie的失效时间。Session Cookie在浏览器关闭后，Session Cookie便马上失效。而Third-party Cookie在Set-Cookie的时候，指定了Expire时间，只有到Expire时间后，Third-party Cookie才会失效。</p>

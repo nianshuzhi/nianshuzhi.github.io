@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>php跨域设置 - Hexo</title>
+<title>categories - 其他 - Hexo</title>
 
 <meta name="keywords" content="">
 
@@ -113,17 +113,17 @@
 
             <div class="page-title">
     <ul>
-        <li><a href="/">Recent Posts</a></li>
+        <li class="">
+            <a href="/" data-name="Recent Posts">Recent Posts</a>
+        </li>
         
-            
-                <li class="active">
-                    <a href="/categories/tech-notes" data-name="技术">技术</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/others" data-name="其他">其他</a>
-                </li>
-            
+        <li class="">
+            <a href="/categories/tech-notes" data-name="技术">技术</a>
+        </li>
+        
+        <li class="active">
+            <a href="/categories/others" data-name="其他">其他</a>
+        </li>
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -138,74 +138,41 @@
     </ul>
 </div>
 <div class="main-inner">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href=""
-                   target="_blank">
-                    <img width="48" src="/images/favicon.png" alt="avatar"/>
-                </a>
-                <p><span class="label">Author</span>
-                    <a href=""
-                       target="_blank">狐狸</a>
-                    <span title="Last edited at&nbsp;2019-10-28">2019-10-28</span>
-                </p>
-                <p>咸鱼程序员</p>
-            </div>
-            <h2 class="post-title">PHP跨域设置</h2>
-            <div class="post-meta">
-                emm... 569 words in the article |
-                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <p>以下为常用的跨域配置，有一点要注意的是，Credentials配置前的Origin不能是*。</p>
-<p>单个地址跨域：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'Access-Control-Allow-Origin: http://www.baidu.com'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>多个地址跨域：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$origin = <span class="keyword">isset</span>($_SERVER[<span class="string">'HTTP_ORIGIN'</span>])?$_SERVER[<span class="string">'HTTP_ORIGIN'</span>]:<span class="string">''</span>;</span><br><span class="line">$allow_origin = [</span><br><span class="line">  <span class="string">'http://www.nianshuzhi.com'</span>,</span><br><span class="line">  <span class="string">'http://www.baidu.com'</span>,</span><br><span class="line">];</span><br><span class="line"><span class="keyword">if</span>(in_array($origin, $allow_origin))&#123;  </span><br><span class="line">    header(<span class="string">'Access-Control-Allow-Origin: '</span>.$origin);       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>所有地址跨域：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'Access-Control-Allow-Origin: *'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>操作Cookie：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'Access-Control-Allow-Credentials: true'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>限制访问方法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'Access-Control-Allow-Methods: POST,GET,OPTIONS'</span>);</span><br></pre></td></tr></table></figure>
-
-
+    
+        
             
-                
-
-            
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+<article class="post">
+    
+    <div class="post-header">
+        <div class="post-meta">
+            <a href="" target="_blank">
+                <strong>狐狸</strong>
             </a>
-        </div>
-        
-        <div class="post-tags">Tags：
+            <em>·</em>2019-10-28
             
         </div>
-        
-    </article>
-    
-        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
-    
-    
-    
+        <a class="post-title" href="/2019/10/28/MAC%E4%B8%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E8%8B%B1%E6%96%87%E5%90%8D%E6%B1%89%E5%8C%96/" target="_blank" title="MAC下文件夹英文名汉化">MAC下文件夹英文名汉化</a>
+        <div class="post-meta">
+            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+            
+        </div>
+    </div>
+    <div class="post-desc">
+        MAC下文件夹英文名汉化
+    </div>
+</article>
 
+
+
+        
+    
 </div>
-<script src="/js/busuanzi.pure.mini.js"></script>
 
 
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
-    <div class="footer-inner" style="text-align: center">
+    <div class="footer-inner" style="text-align: left">
         <p>
             <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
